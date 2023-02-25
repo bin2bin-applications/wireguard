@@ -1,20 +1,20 @@
 {
   "repo_id": "wireguard",
   "name": "Wireguard VPN",
-  "links": ["https://www.wireguard.com/", "https://github.com/WeeJeWel/wg-easy"],
+  "links": [
+    "https://www.wireguard.com/",
+    "https://github.com/WeeJeWel/wg-easy"
+  ],
   "description": {
     "short": "Fast, Modern, Secure VPN Tunnel",
     "long": "WireGuard is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache."
   },
   "architectures": [{ "arch": "arch_x86_64", "tag": "latest" }],
   "container": {
-    "mysql": {
-      "required": false, "char_set": "utf8mb4",
-      "collate": "utf8mb4_0900_ai_ci"
-    },
+    "mysql": { "char_set": "utf8mb4", "collate": "utf8mb4_0900_ai_ci" },
     "ports": {
-      "8080": {"type": "web", "name": "webapp"},
-      "51821": {"type": "udp", "host": "51821"}
+      "8080": { "type": "web", "name": "webapp" },
+      "51821": { "type": "udp", "host": "51821" }
     },
     "extra_args": {
       "cap_add": ["NET_ADMIN", "SYS_MODULE"],
@@ -25,8 +25,10 @@
     },
     "volumes": [
       {
-        "host": "config", "type": "private",
-        "mode": "rw", "bind": "/etc/wireguard"
+        "host": "config",
+        "type": "private",
+        "mode": "rw",
+        "bind": "/etc/wireguard"
       }
     ]
   },
