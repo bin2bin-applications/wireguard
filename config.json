@@ -8,8 +8,12 @@
   },
   "architectures": [{ "arch": "arch_x86_64", "tag": "latest" }],
   "container": {
+    "mysql": {
+      "required": false, "char_set": "utf8mb4",
+      "collate": "utf8mb4_0900_ai_ci"
+    },
     "ports": {
-      "8080": {"type": "web"},
+      "8080": {"type": "web", "name": "webapp"},
       "51821": {"type": "udp", "host": "51821"}
     },
     "extra_args": {
